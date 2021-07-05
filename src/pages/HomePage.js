@@ -1,9 +1,14 @@
+import { useState } from "react";
+import SideBar from "../components/Sidebar";
 import Navbar from "./../components/Navbar";
 
 const HomePage = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
-      <Navbar />
+      <Navbar setIsOpen={setIsOpen} />
+      <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
       <h1 id="about" style={{ marginTop: 300 }}>
         About Section
       </h1>

@@ -10,19 +10,19 @@ import {
   MenuIcon,
 } from "./styles";
 
-const Navbar = () => {
+const Navbar = ({ setIsOpen }) => {
   return (
     <NavEl>
       <NavContainer>
         <NavLogo to="/">Naga</NavLogo>
         <LinksWrapper>
           <NavItem to="about">About</NavItem>
+          <NavItem to="services">Services</NavItem>
           <NavItem to="features">Features</NavItem>
-          <NavItem to="contact">Contact</NavItem>
         </LinksWrapper>
         <SignUpLink to="/signup">Sign Up</SignUpLink>
         <MenuIcon>
-          <FiMenu />
+          <FiMenu onClick={() => setIsOpen(true)} />
         </MenuIcon>
       </NavContainer>
     </NavEl>
