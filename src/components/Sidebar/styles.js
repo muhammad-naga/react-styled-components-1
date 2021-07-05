@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link as ScrollLink } from "react-scroll";
-import { Link as RouterLink } from "react-router-dom";
 import { main, screenLg, secondColor } from "../../variables";
 
 export const SidebarWrapper = styled.aside`
@@ -56,7 +55,7 @@ export const BtnWrapper = styled.div`
   margin-top: 30px;
 `;
 
-export const SignupLink = styled(RouterLink)`
+export const SignupLink = styled(ScrollLink)`
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;

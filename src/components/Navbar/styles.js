@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { Link as RouterLink } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import {
   secondColor,
@@ -79,7 +78,7 @@ export const NavItem = styled(ScrollLink)`
   }
 `;
 
-export const SignUpLink = styled(RouterLink)`
+export const SignUpLink = styled(ScrollLink)`
   ${linkStyleBase};
   color: #fff;
   background-color: #ff006e;
