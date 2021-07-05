@@ -16,11 +16,12 @@ const HeroSection = () => {
         <VideoBG autoPlay loop muted src={Video} type="video/mp4" />
       </VideoWrapper>
       <ContentWrapper>
-        <HeroText>KEEP IN TOUCH</HeroText>
+        <HeroText>Great software is built with amazing developers</HeroText>
         <HeroDesc>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
-          aspernatur delectus error ab magni iusto impedit voluptatem temporibus
-          maiores quod?
+          We help build and manage a team of world-class developers to bring
+          your vision to life, We believe it’s important for everyone to have
+          access to software especially when it comes to digital learning be
+          navigate.
         </HeroDesc>
         <CustomLink text="get started" target="about" />
       </ContentWrapper>

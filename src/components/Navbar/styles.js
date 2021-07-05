@@ -1,7 +1,13 @@
 import styled, { css } from "styled-components";
 import { Link as RouterLink } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import { secondColor, screenMd, screenSm, main } from "../../variables";
+import {
+  secondColor,
+  screenMd,
+  screenSm,
+  main,
+  blackColor,
+} from "../../variables";
 
 const linkStyleBase = css`
   text-decoration: none;
@@ -9,9 +15,16 @@ const linkStyleBase = css`
 `;
 
 export const NavEl = styled.nav`
-  background-color: #000;
-  color: #fff;
+  background-color: ${({ isScollable }) =>
+    isScollable ? blackColor : "transparent"};
   padding: 15px 0;
+  color: #fff;
+  position: ${({ isScollable }) => (isScollable ? "fixed" : "absolute")};
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.4s ease-in-out;
 
   @media screen and (max-width: ${screenMd}) {
     transition: 0.8s all ease;
@@ -27,17 +40,22 @@ export const NavContainer = styled.div`
   max-width: 1200px;
 `;
 
-export const NavLogo = styled(RouterLink)`
+export const NavLogo = styled(ScrollLink)`
   color: #fff;
   ${linkStyleBase};
   font-weight: bold;
   letter-spacing: 4px;
+  cursor: pointer;
 `;
 
 export const LinksWrapper = styled.ul`
   display: flex;
   list-style: none;
   align-items: center;
+
+  &.active {
+    border-bottom: 1px solid red;
+  }
 
   @media screen and (max-width: ${screenSm}) {
     display: none;
@@ -52,12 +70,12 @@ export const NavItem = styled(ScrollLink)`
   font-size: 0.9rem;
   transition: 0.5s ease-in-out;
 
-  &:hover {
-    color: ${main};
+  .active {
+    border-bottom: 1px solid red;
   }
 
-  &.active {
-    border-bottom: 1px solid red;
+  &:hover {
+    color: ${main};
   }
 `;
 

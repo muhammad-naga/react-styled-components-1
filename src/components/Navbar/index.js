@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
+import { animateScroll as scroll } from "react-scroll";
 
 import {
   NavItem,
@@ -11,16 +13,65 @@ import {
 } from "./styles";
 
 const Navbar = ({ setIsOpen }) => {
+  const [isScollable, setIsScrollable] = useState(false);
+
+  const onChangeScroll = () => {
+    if (window.scrollY >= 100) {
+      setIsScrollable(true);
+    } else {
+      setIsScrollable(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onChangeScroll);
+  }, []);
+
   return (
-    <NavEl>
+    <NavEl isScollable={isScollable}>
       <NavContainer>
-        <NavLogo to="/">Naga</NavLogo>
+        <NavLogo to="/" onClick={() => scroll.scrollToTop()}>
+          Naga
+        </NavLogo>
         <LinksWrapper>
-          <NavItem to="about">About</NavItem>
-          <NavItem to="services">Services</NavItem>
-          <NavItem to="features">Features</NavItem>
+          <NavItem to="boost" smooth exact="true" duration={500} offset={-68}>
+            Boost
+          </NavItem>
+          <NavItem to="support" smooth exact="true" duration={500} offset={-68}>
+            Support
+          </NavItem>
+          <NavItem
+            to="features"
+            smooth
+            exact="true"
+            duration={500}
+            offset={-68}
+          >
+            Features
+          </NavItem>
+          <NavItem to="payment" smooth exact="true" duration={500} offset={-68}>
+            Payment
+          </NavItem>
+          <NavItem
+            to="jackpots"
+            smooth
+            exact="true"
+            duration={500}
+            offset={-68}
+          >
+            Jackpots
+          </NavItem>
+          <NavItem
+            to="performance"
+            smooth
+            exact="true"
+            duration={500}
+            offset={-68}
+          >
+            Performance
+          </NavItem>
         </LinksWrapper>
-        <SignUpLink to="/signup">Sign Up</SignUpLink>
+        <SignUpLink to="/">Sign Up</SignUpLink>
         <MenuIcon>
           <FiMenu onClick={() => setIsOpen(true)} />
         </MenuIcon>

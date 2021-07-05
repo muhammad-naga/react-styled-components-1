@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import { main } from "../../variables";
 
 export const Wrapper = styled.div`
   width: fit-content;
-  margin: 30px auto 0 auto;
+  margin: ${({ isMargin }) => (isMargin ? `${isMargin}` : `30px auto 0 auto`)};
   background-color: ${main};
   padding: 10px 20px;
   border-radius: 20px;
@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 
 export const LinkItem = styled(Link)`
   color: #fff;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: 600;
   font-size: 0.9rem;
 `;
