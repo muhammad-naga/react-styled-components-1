@@ -8,3 +8,7 @@ body {
   height: 5000px;
   font-family: "Poppins", sans-serif;
 }
+
+a {
+  text-decoration: none;
+}
